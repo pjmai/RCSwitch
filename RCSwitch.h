@@ -78,6 +78,7 @@ class RCSwitch {
 
     void sendTriState(const char* sCodeWord);
     void send(unsigned long code, unsigned int length);
+    void send(unsigned long long code, unsigned int length);
     void send(const char* sCodeWord);
     
     #if not defined( RCSwitchDisableReceiving )
