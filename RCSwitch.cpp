@@ -91,6 +91,7 @@ static const RCSwitch::Protocol PROGMEM proto[] = {
   { 365, { 18,  1 }, {  3,  1 }, {  1,  3 }, true },     // protocol 10 (1ByOne Doorbell)
   { 270, { 36,  1 }, {  1,  2 }, {  2,  1 }, true },     // protocol 11 (HT12E)
   { 320, { 36,  1 }, {  1,  2 }, {  2,  1 }, true }      // protocol 12 (SM5212)
+  { 250, { 3,  3 }, {  2,  1 }, {  1,  2 }, true }       // protocol 13 (baldr outdoor sensor)
 };
 
 enum {
