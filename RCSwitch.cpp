@@ -99,7 +99,7 @@ enum {
 };
 
 #if not defined( RCSwitchDisableReceiving )
-volatile unsigned long RCSwitch::nReceivedValue = 0;
+volatile unsigned long long RCSwitch::nReceivedValue = 0;
 volatile unsigned int RCSwitch::nReceivedBitlength = 0;
 volatile unsigned int RCSwitch::nReceivedDelay = 0;
 volatile unsigned int RCSwitch::nReceivedProtocol = 0;
@@ -496,7 +496,7 @@ void RCSwitch::send(const char* sCodeWord) {
  * bits are sent from MSB to LSB, i.e., first the bit at position length-1,
  * then the bit at position length-2, and so on, till finally the bit at position 0.
  */
-void RCSwitch::send(unsigned long code, unsigned int length) {
+vvoid RCSwitch::send(unsigned long long code, unsigned int length) {
   if (this->nTransmitterPin == -1)
     return;
 
@@ -582,7 +582,7 @@ void RCSwitch::resetAvailable() {
   RCSwitch::nReceivedValue = 0;
 }
 
-unsigned long RCSwitch::getReceivedValue() {
+unsigned long long RCSwitch::getReceivedValue() {
   return RCSwitch::nReceivedValue;
 }
 
@@ -618,7 +618,7 @@ bool RECEIVE_ATTR RCSwitch::receiveProtocol(const int p, unsigned int changeCoun
     memcpy_P(&pro, &proto[p-1], sizeof(Protocol));
 #endif
 
-    unsigned long code = 0;
+    unsigned long long code = 0;
     //Assuming the longer pulse length is the pulse captured in timings[0]
     const unsigned int syncLengthInPulses =  ((pro.syncFactor.low) > (pro.syncFactor.high)) ? (pro.syncFactor.low) : (pro.syncFactor.high);
     const unsigned int delay = RCSwitch::timings[0] / syncLengthInPulses;
