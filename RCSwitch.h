@@ -88,7 +88,7 @@ class RCSwitch {
     bool available();
     void resetAvailable();
 
-    unsigned long getReceivedValue();
+    unsigned long long getReceivedValue();
     unsigned int getReceivedBitlength();
     unsigned int getReceivedDelay();
     unsigned int getReceivedProtocol();
@@ -168,7 +168,7 @@ class RCSwitch {
 
     #if not defined( RCSwitchDisableReceiving )
     static int nReceiveTolerance;
-    volatile static unsigned long nReceivedValue;
+    volatile static unsigned long long nReceivedValue;
     volatile static unsigned int nReceivedBitlength;
     volatile static unsigned int nReceivedDelay;
     volatile static unsigned int nReceivedProtocol;
